@@ -23,6 +23,8 @@ for ii in range(1, 100):
     for tweet in OAuth.searchTweetsIterable(congress_tweets):
       json_list.append(tweet)
       json_list.append(tweet)
+    #probably not the best way to do it. Once the rate limit comes back up. Sort the list by ids
+    #and then pick up the most recent id. for the since id
     since_id = int(json_list[-1]['id'])
     with open("tweets_data/test/%s.json" %("hashtag_CA17_" + str(ii)), "w") as output:
       json.dump(json_list, output)
